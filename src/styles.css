@@ -413,6 +413,17 @@ section {
   .section-header h2 {
     font-size: 2rem;
   }
+  .modal-backdrop {
+    padding: 10px; /* Reduce padding on small screens to give modal more screen width */
+  }
+  .modal-content {
+    padding: 24px 16px;
+    max-height: 90vh; /* Keeps card inside the mobile viewport height */
+    width: 92% !important; /* Force width constraint to prevent horizontal overflow */
+    max-width: 92% !important; /* Force max-width constraint to prevent horizontal overflow */
+    border-radius: 12px;
+    margin: 0 auto;
+  }
 }
 
 /* Page Load Staggered Animations */

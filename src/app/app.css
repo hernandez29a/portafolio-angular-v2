@@ -107,6 +107,14 @@
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
+  padding: 10px; /* Expand touch target area to meet 44px recommended size */
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001; /* Ensure button sits above header overlays */
+  position: relative;
 }
 
 /* Hero Section */
@@ -233,6 +241,7 @@
   justify-content: center;
   gap: 15px;
   margin-bottom: 45px;
+  flex-wrap: wrap; /* Prevents button list from overflowing mobile width */
 }
 
 .filter-btn {
@@ -833,6 +842,7 @@ body.light-theme .zoom-indicator {
     gap: 20px;
     align-items: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Stacking above standard page content when open */
   }
   
   .nav-controls {
@@ -845,14 +855,97 @@ body.light-theme .zoom-indicator {
 }
 
 @media (max-width: 768px) {
+  /* Hero Section Mobile Adaptability */
+  .hero {
+    padding-top: calc(var(--header-height) + 20px);
+    padding-bottom: 40px;
+    min-height: auto;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-content .badge {
+    margin: 0 auto 20px auto !important;
+    width: max-content;
+  }
+
+  .hero-content h1 {
+    font-size: 2.6rem;
+    margin-bottom: 12px;
+  }
+
+  .hero-content .subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-content .description {
+    font-size: 1rem;
+    margin: 0 auto 30px auto;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .hero-visual {
+    order: -1; /* Place avatar above text on mobile for better visual hierarchy */
+  }
+
+  .avatar-wrapper {
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Stats Section Mobile Adaptability */
+  .stats-banner {
+    padding: 30px 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+  }
+
+  .stat-item h3 {
+    font-size: 2.2rem;
+  }
+
+  .stat-item p {
+    font-size: 0.85rem;
+  }
+
+  /* Projects Catalog grid */
   .projects-grid {
     grid-template-columns: 1fr;
   }
   
+  /* Skills Stack grid */
   .skills-grid {
     grid-template-columns: 1fr;
   }
   
+  /* Experience Timeline */
   .timeline::before {
     left: 20px;
   }
@@ -869,6 +962,51 @@ body.light-theme .zoom-indicator {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+  }
+
+  /* Contact Section Mobile Adaptability */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+
+  .contact-info p {
+    margin-bottom: 30px;
+  }
+
+  .contact-methods {
+    align-items: center;
+  }
+
+  .contact-method {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  /* Modal Details Mobile Adaptability */
+  .modal-project-img {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  .modal-project-header h3 {
+    font-size: 1.8rem;
+  }
+
+  .modal-body-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .modal-left p {
+    font-size: 0.92rem;
+    margin-bottom: 24px;
   }
 }
 

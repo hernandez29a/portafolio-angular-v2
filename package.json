@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:github": "ng build --base-href=/portafolio-angular-v2/",
+    "deploy": "yarn build:github && npx -y angular-cli-ghpages --dir=dist/portfolio-website/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
