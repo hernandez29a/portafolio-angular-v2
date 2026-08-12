@@ -280,8 +280,11 @@
         <p class="tagline">{{ project.tagline }}</p>
       </div>
       
-      <div class="modal-project-img">
+      <div class="modal-project-img" (click)="openLightbox(activeImageIndex())">
         <img [src]="project.images[activeImageIndex()]" [alt]="project.title" />
+        <div class="zoom-indicator">
+          <i class="fa-solid fa-maximize"></i> {{ isSpanish() ? 'Click para ampliar' : 'Click to expand' }}
+        </div>
       </div>
       
       <!-- Thumbnail Gallery -->
@@ -323,3 +326,25 @@
 <button class="back-to-top" [class.show]="showBackToTop()" (click)="scrollToTop()" aria-label="Volver arriba">
   <i class="fa-solid fa-arrow-up"></i>
 </button>
+
+<!-- Lightbox Overlay -->
+@if (lightboxActive()) {
+  <div class="lightbox-overlay" (click)="closeLightbox()">
+    <button class="lightbox-close" (click)="closeLightbox()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    
+    <button class="lightbox-nav lightbox-prev" (click)="prevLightboxImage($event)">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <img [src]="lightboxImage()" alt="Expanded Project View" />
+      <span class="lightbox-counter">{{ lightboxImageIndex() + 1 }} / {{ selectedProject()?.images?.length }}</span>
+    </div>
+    
+    <button class="lightbox-nav lightbox-next" (click)="nextLightboxImage($event)">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+}

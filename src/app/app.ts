@@ -70,10 +70,10 @@ export class App {
       description: 'Plataforma empresarial de microservicios políglotas especializada en confección textil, con base de datos MongoDB aislada por empresa.',
       fullDescription: 'Loomflow es una solución SaaS integral diseñada para centralizar la gestión de fábricas de ropa y comercios textiles. Al ser multi-tenant, implementa un estricto aislamiento de datos para garantizar la confidencialidad de cada empresa. Destaca por su arquitectura modular con comunicación asíncrona de eventos en tiempo real, permitiendo sincronizar las ventas de retail con las colas de costura de forma automática.',
       images: [
-        'images/loomflow_mockup.png',
-        'images/loomflow_architecture.png',
-        'images/loomflow_code.png',
-        'images/loomflow_terminal.png'
+        'assets/loomflow/vista de creacion de inquilinos.png',
+        'assets/loomflow/login.png',
+        'assets/loomflow/administracion-tasas.png',
+        'assets/loomflow/soporte-bd-inquilino.png'
       ],
       category: 'microservices',
       tech: ['Angular 19+', 'NestJS', 'Rust', 'RabbitMQ', 'MongoDB', 'Caddy', 'Docker'],
@@ -91,10 +91,10 @@ export class App {
       description: 'Sistema administrativo con recetas de producción (BOM), nómina a destajo, control fiscal SENIAT y agentes inteligentes de atención e informes.',
       fullDescription: 'Desplegado para Confecciones Peyber, este sistema unifica la cadena productiva y financiera. Automatiza la estimación del costo de confección por prenda (telas, hilos, botones y mermas), el cálculo de nómina basado en el trabajo diario del taller (piecework) aplicando retenciones del SENIAT (IVA y control fiscal), y la conciliación bancaria. Cuenta con potentes integraciones de IA para facilitar la administración diaria.',
       images: [
-        'images/peyber_mockup.png',
-        'images/peyber_payroll.png',
-        'images/peyber_billing.png',
-        'images/peyber_instagram.png'
+        'assets/peyber-inventory-system/dashboard-graficas.png',
+        'assets/peyber-inventory-system/login.png',
+        'assets/peyber-inventory-system/orden-agente.png',
+        'assets/peyber-inventory-system/registrar-factura.png'
       ],
       category: 'fullstack',
       tech: ['Angular', 'NestJS', 'MongoDB', 'Mongoose', 'Cloudinary API', 'Gemini AI', 'Meta Webhooks'],
@@ -112,10 +112,10 @@ export class App {
       description: 'Motor lógico de exploración en base a cartas con inicialización dinámica de mapas en grafo y sincronización de pantallas HUD en tiempo real.',
       fullDescription: 'Érebo es un juego de exploración y supervivencia espacial por turnos. Destaca por su diseño asimétrico en doble pantalla: el jugador usa su móvil para planificar cartas y equipar inventario (sin hacer ruido que atraiga enemigos), y una tablet visualiza el HUD de pánico, estrés, vida y lo que los sentidos del personaje perciben en la habitación.',
       images: [
-        'images/erebo_mockup.png',
-        'images/erebo_map.png',
-        'images/erebo_cards.png',
-        'images/erebo_combat.png'
+        'assets/proyecto-erebo/creacion-pj.png',
+        'assets/proyecto-erebo/login.png',
+        'assets/proyecto-erebo/acciones-personaje.png',
+        'assets/proyecto-erebo/creacion-mesa.png'
       ],
       category: 'game',
       tech: ['Angular CLI', 'NestJS CLI', 'MongoDB', 'Postman collections', 'Node.js'],
@@ -261,10 +261,10 @@ export class App {
       description: 'Polyglot microservices enterprise platform specialized in textile manufacturing, featuring company-isolated MongoDB databases.',
       fullDescription: 'Loomflow is a comprehensive SaaS solution designed to centralize the management of garment factories and textile businesses. Being multi-tenant, it implements strict data isolation to guarantee confidentiality for each company. It stands out due to its modular architecture with real-time asynchronous event communication, allowing retail sales to automatically synchronize with workshop sewing queues.',
       images: [
-        'images/loomflow_mockup.png',
-        'images/loomflow_architecture.png',
-        'images/loomflow_code.png',
-        'images/loomflow_terminal.png'
+        'assets/loomflow/vista de creacion de inquilinos.png',
+        'assets/loomflow/login.png',
+        'assets/loomflow/administracion-tasas.png',
+        'assets/loomflow/soporte-bd-inquilino.png'
       ],
       category: 'microservices',
       tech: ['Angular 19+', 'NestJS', 'Rust', 'RabbitMQ', 'MongoDB', 'Caddy', 'Docker'],
@@ -282,10 +282,10 @@ export class App {
       description: 'Administrative system featuring production recipes (BOM), piecework payroll, SENIAT fiscal compliance, and intelligent agents for reports and support.',
       fullDescription: 'Deployed for Confecciones Peyber, this system unifies the production and financial chain. It automates costing estimation per garment (fabrics, threads, buttons, and waste), piecework-based payroll calculations applying Venezuelan legal deductions (SSO, SPF, FAOV), and bank reconciliation. It features powerful AI integrations to ease daily operations.',
       images: [
-        'images/peyber_mockup.png',
-        'images/peyber_payroll.png',
-        'images/peyber_billing.png',
-        'images/peyber_instagram.png'
+        'assets/peyber-inventory-system/dashboard-graficas.png',
+        'assets/peyber-inventory-system/login.png',
+        'assets/peyber-inventory-system/orden-agente.png',
+        'assets/peyber-inventory-system/registrar-factura.png'
       ],
       category: 'fullstack',
       tech: ['Angular', 'NestJS', 'MongoDB', 'Mongoose', 'Cloudinary API', 'Gemini AI', 'Meta Webhooks'],
@@ -303,10 +303,10 @@ export class App {
       description: 'Logical card-based exploration engine featuring dynamic graph map initialization and real-time dual-screen HUD synchronization.',
       fullDescription: 'Érebo is a turn-based tactical sci-fi exploration game. It stands out due to its asymmetric dual-screen design: players use their mobile devices to plan cards and manage inventory quietly (to avoid attracting enemies), while a tablet displays the HUD indicating panic, stress, health, and environmental perceptions.',
       images: [
-        'images/erebo_mockup.png',
-        'images/erebo_map.png',
-        'images/erebo_cards.png',
-        'images/erebo_combat.png'
+        'assets/proyecto-erebo/creacion-pj.png',
+        'assets/proyecto-erebo/login.png',
+        'assets/proyecto-erebo/acciones-personaje.png',
+        'assets/proyecto-erebo/creacion-mesa.png'
       ],
       category: 'game',
       tech: ['Angular CLI', 'NestJS CLI', 'MongoDB', 'Postman collections', 'Node.js'],
@@ -467,6 +467,15 @@ export class App {
   protected readonly isSubmitting = signal(false);
   protected readonly submitSuccess = signal(false);
 
+  // Lightbox State
+  protected readonly lightboxActive = signal(false);
+  protected readonly lightboxImageIndex = signal(0);
+  protected readonly lightboxImage = computed(() => {
+    const project = this.selectedProject();
+    if (!project) return '';
+    return project.images[this.lightboxImageIndex()];
+  });
+
   // Form submit handler
   protected onSubmit(event: Event): void {
     event.preventDefault();
@@ -572,6 +581,46 @@ export class App {
 
   protected closeProject(): void {
     this.selectedProject.set(null);
+    this.closeLightbox();
     document.body.style.overflow = ''; 
+  }
+
+  // Lightbox methods
+  protected openLightbox(index: number): void {
+    this.lightboxImageIndex.set(index);
+    this.lightboxActive.set(true);
+  }
+
+  protected closeLightbox(): void {
+    this.lightboxActive.set(false);
+  }
+
+  protected prevLightboxImage(event?: Event): void {
+    if (event) event.stopPropagation();
+    const project = this.selectedProject();
+    if (!project) return;
+    const total = project.images.length;
+    this.lightboxImageIndex.update(idx => (idx - 1 + total) % total);
+  }
+
+  protected nextLightboxImage(event?: Event): void {
+    if (event) event.stopPropagation();
+    const project = this.selectedProject();
+    if (!project) return;
+    const total = project.images.length;
+    this.lightboxImageIndex.update(idx => (idx + 1) % total);
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  protected onKeyDown(event: KeyboardEvent): void {
+    if (!this.lightboxActive()) return;
+    
+    if (event.key === 'Escape') {
+      this.closeLightbox();
+    } else if (event.key === 'ArrowLeft') {
+      this.prevLightboxImage();
+    } else if (event.key === 'ArrowRight') {
+      this.nextLightboxImage();
+    }
   }
 }
