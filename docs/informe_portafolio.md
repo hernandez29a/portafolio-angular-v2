@@ -11,7 +11,7 @@ A partir de los archivos de currículum analizados, hemos detectado el siguiente
 * **Nombre:** Gustavo Hernández
 * **Rol Principal:** Engineering Manager / Lead Architect / Tech Lead
 * **Ubicación:** Barquisimeto, Venezuela
-* **Contacto:** hernandez29a@mail.com | +58 416 631 1773 | [LinkedIn](https://linkedin.com/in/gustavohernandezsalazar)
+* **Contacto:** hernandez29a@mail.com | [LinkedIn](https://linkedin.com/in/gustavohernandezsalazar)
 * **Idiomas:** 
   * Español: Nativo.
   * Inglés: *"Intermedio B2".*

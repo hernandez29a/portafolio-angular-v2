@@ -1,17 +1,29 @@
 <!-- Navigation Header -->
 <header class="header">
   <div class="container nav-container">
-    <a href="#" class="logo">GUSTAVO<span>HERNÁNDEZ</span></a>
+    <a href="#" class="logo">GUSTAVO <span>HERNÁNDEZ</span></a>
     
     <nav>
       <ul class="nav-links" [class.active]="mobileMenuOpen()">
-        <li><a href="#inicio" (click)="mobileMenuOpen.set(false)">Inicio</a></li>
-        <li><a href="#proyectos" (click)="mobileMenuOpen.set(false)">Proyectos</a></li>
-        <li><a href="#experiencia" (click)="mobileMenuOpen.set(false)">Experiencia</a></li>
-        <li><a href="#habilidades" (click)="mobileMenuOpen.set(false)">Habilidades</a></li>
-        <li><a href="#contacto" (click)="mobileMenuOpen.set(false)">Contacto</a></li>
+        <li><a href="#inicio" (click)="mobileMenuOpen.set(false)">{{ general().navHome }}</a></li>
+        <li><a href="#proyectos" (click)="mobileMenuOpen.set(false)">{{ general().navProjects }}</a></li>
+        <li><a href="#experiencia" (click)="mobileMenuOpen.set(false)">{{ general().navExperience }}</a></li>
+        <li><a href="#habilidades" (click)="mobileMenuOpen.set(false)">{{ general().navSkills }}</a></li>
+        <li><a href="#contacto" (click)="mobileMenuOpen.set(false)">{{ general().navContact }}</a></li>
       </ul>
     </nav>
+
+    <div class="nav-controls">
+      <!-- Theme Switcher -->
+      <button class="control-btn" (click)="toggleTheme()" [title]="isDarkMode() ? (isSpanish() ? 'Modo Claro' : 'Light Mode') : (isSpanish() ? 'Modo Oscuro' : 'Dark Mode')">
+        <i class="fa-solid" [class.fa-sun]="isDarkMode()" [class.fa-moon]="!isDarkMode()"></i>
+      </button>
+      
+      <!-- Language Switcher -->
+      <button class="control-btn lang-btn" (click)="toggleLanguage()" [title]="isSpanish() ? 'Switch to English' : 'Cambiar a Español'">
+        <span>{{ isSpanish() ? 'EN' : 'ES' }}</span>
+      </button>
+    </div>
     
     <button class="menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle Menu">
       <i class="fa-solid" [class.fa-bars]="!mobileMenuOpen()" [class.fa-xmark]="mobileMenuOpen()"></i>
@@ -23,20 +35,20 @@
 <section id="inicio" class="hero">
   <div class="container hero-grid">
     <div class="hero-content">
-      <span class="badge badge-cyan"><i class="fa-solid fa-circle-check mr-1"></i> Disponible para Liderazgo</span>
-      <h1>Gustavo Hernández</h1>
-      <p class="subtitle">Engineering Manager & Lead Software Architect</p>
-      <p class="description">
-        Líder tecnológico y Arquitecto de Software con más de 9 años de trayectoria escalando departamentos técnicos. Especialista en la creación de ecosistemas de backend distribuidos, desarrollo full-stack, automatización de procesos y dirección de equipos de alto rendimiento, enfocados en Clean Code y el retorno de inversión tecnológica (ROI).
+      <span class="badge badge-cyan animate-fade-in"><i class="fa-solid fa-circle-check mr-1"></i> {{ general().heroBadge }}</span>
+      <h1 class="animate-fade-in delay-1">{{ general().heroTitle }}</h1>
+      <p class="subtitle animate-fade-in delay-2">{{ general().heroSubtitle }}</p>
+      <p class="description animate-fade-in delay-3">
+        {{ general().heroDescription }}
       </p>
-      <div class="hero-actions">
-        <a href="#contacto" class="btn btn-primary">Contáctame</a>
-        <a href="assets/CV_Gustavo_Hernandez_ES.pdf" download class="btn btn-outline"><i class="fa-solid fa-download"></i> Descargar CV (ES)</a>
-        <a href="assets/CV_Gustavo_Hernandez_EN.pdf" download class="btn btn-outline"><i class="fa-solid fa-download"></i> Download CV (EN)</a>
+      <div class="hero-actions animate-fade-in delay-4">
+        <a href="#contacto" class="btn btn-primary">{{ general().heroContactBtn }}</a>
+        <a href="assets/CV_Gustavo_Hernandez_ES.pdf" download class="btn btn-outline"><i class="fa-solid fa-download"></i> {{ general().heroCvEsBtn }}</a>
+        <a href="assets/CV_Gustavo_Hernandez_EN.pdf" download class="btn btn-outline"><i class="fa-solid fa-download"></i> {{ general().heroCvEnBtn }}</a>
       </div>
     </div>
     
-    <div class="hero-visual">
+    <div class="hero-visual animate-fade-in delay-2">
       <div class="avatar-wrapper">
         <img src="images/profile.jpg" alt="Gustavo Hernández" />
         <div class="avatar-ring-glow"></div>
@@ -50,19 +62,19 @@
   <div class="container stats-grid">
     <div class="stat-item">
       <h3>+9</h3>
-      <p>Años de Exp. Técnica</p>
+      <p>{{ general().statsExp }}</p>
     </div>
     <div class="stat-item">
       <h3>24</h3>
-      <p>Ingenieros Liderados</p>
+      <p>{{ general().statsEngineers }}</p>
     </div>
     <div class="stat-item">
       <h3>60%</h3>
-      <p>Reducción en Deploys</p>
+      <p>{{ general().statsDeploys }}</p>
     </div>
     <div class="stat-item">
       <h3>100%</h3>
-      <p>Clean Code & Patrones</p>
+      <p>{{ general().statsPatterns }}</p>
     </div>
   </div>
 </div>
@@ -71,16 +83,16 @@
 <section id="proyectos">
   <div class="container">
     <div class="section-header">
-      <h2>Proyectos Destacados</h2>
-      <p>Casos de estudio reales y sistemas empresariales en producción diseñados para resolver problemas complejos de negocio.</p>
+      <h2>{{ general().projectsHeader }}</h2>
+      <p>{{ general().projectsSub }}</p>
     </div>
     
     <!-- Filter Buttons -->
     <div class="filters-container">
-      <button class="filter-btn" [class.active]="activeFilter() === 'all'" (click)="setFilter('all')">Todos</button>
-      <button class="filter-btn" [class.active]="activeFilter() === 'microservices'" (click)="setFilter('microservices')">Microservicios</button>
-      <button class="filter-btn" [class.active]="activeFilter() === 'fullstack'" (click)="setFilter('fullstack')">Full-Stack / IA</button>
-      <button class="filter-btn" [class.active]="activeFilter() === 'game'" (click)="setFilter('game')">Juegos & Grafos</button>
+      <button class="filter-btn" [class.active]="activeFilter() === 'all'" (click)="setFilter('all')">{{ general().filterAll }}</button>
+      <button class="filter-btn" [class.active]="activeFilter() === 'microservices'" (click)="setFilter('microservices')">{{ general().filterMicro }}</button>
+      <button class="filter-btn" [class.active]="activeFilter() === 'fullstack'" (click)="setFilter('fullstack')">{{ general().filterFull }}</button>
+      <button class="filter-btn" [class.active]="activeFilter() === 'game'" (click)="setFilter('game')">{{ general().filterGame }}</button>
     </div>
     
     <!-- Grid projects list -->
@@ -88,9 +100,9 @@
       @for (project of filteredProjects(); track project.id) {
         <div class="glass-card project-card" (click)="openProject(project)">
           <div class="project-image">
-            <img [src]="project.image" [alt]="project.title" loading="lazy" />
+            <img [src]="project.images[0]" [alt]="project.title" loading="lazy" />
             <div class="project-overlay">
-              <span class="btn btn-outline"><i class="fa-solid fa-eye"></i> Ver Detalles</span>
+              <span class="btn btn-outline"><i class="fa-solid fa-eye"></i> {{ isSpanish() ? 'Ver Detalles' : 'View Details' }}</span>
             </div>
           </div>
           <h3>{{ project.title }}</h3>
@@ -113,12 +125,12 @@
 <section id="experiencia">
   <div class="container">
     <div class="section-header">
-      <h2>Trayectoria Profesional</h2>
-      <p>Dirección de departamentos de desarrollo e ingeniería de infraestructura crítica en empresas de tecnología.</p>
+      <h2>{{ general().expHeader }}</h2>
+      <p>{{ general().expSub }}</p>
     </div>
     
     <div class="timeline">
-      @for (item of timeline; track item.company) {
+      @for (item of timeline(); track item.company) {
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-header">
@@ -145,12 +157,12 @@
 <section id="habilidades">
   <div class="container">
     <div class="section-header">
-      <h2>Stack Tecnológico</h2>
-      <p>Tecnologías, arquitecturas y herramientas que domino e implemento en el desarrollo de software profesional.</p>
+      <h2>{{ general().skillsHeader }}</h2>
+      <p>{{ general().skillsSub }}</p>
     </div>
     
     <div class="skills-grid">
-      @for (cat of skillsCategories; track cat.title) {
+      @for (cat of skillsCategories(); track cat.title) {
         <div class="glass-card skills-category">
           <h3><i [class]="cat.icon"></i> {{ cat.title }}</h3>
           <div class="skill-list">
@@ -171,38 +183,30 @@
 <section id="contacto">
   <div class="container contact-grid">
     <div class="contact-info">
-      <h3>¿Conversamos?</h3>
-      <p>Si estás buscando un líder técnico que estructure tus metodologías de desarrollo, un arquitecto de software para escalar tu backend o un manager enfocado en eficiencia, contáctame directamente.</p>
+      <h3>{{ general().contactHeader }}</h3>
+      <p>{{ general().contactSub }}</p>
       
       <div class="contact-methods">
         <div class="contact-method">
           <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
           <div class="contact-details">
-            <h4>Ubicación</h4>
-            <span>Barquisimeto, Venezuela</span>
+            <h4>{{ general().contactLocLabel }}</h4>
+            <span>{{ general().contactLocValue }}</span>
           </div>
         </div>
         
         <div class="contact-method">
           <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
           <div class="contact-details">
-            <h4>Correo Electrónico</h4>
+            <h4>{{ general().contactEmailLabel }}</h4>
             <a href="mailto:hernandez29a@mail.com">hernandez29a@mail.com</a>
-          </div>
-        </div>
-        
-        <div class="contact-method">
-          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-          <div class="contact-details">
-            <h4>Teléfono / Telegram</h4>
-            <span>+58 416 631 1773</span>
           </div>
         </div>
         
         <div class="contact-method">
           <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
           <div class="contact-details">
-            <h4>LinkedIn</h4>
+            <h4>{{ general().contactLinkedInLabel }}</h4>
             <a href="https://linkedin.com/in/gustavohernandezsalazar" target="_blank">/gustavohernandezsalazar</a>
           </div>
         </div>
@@ -212,31 +216,31 @@
     <div class="glass-card">
       <form class="contact-form" (submit)="onSubmit($event)">
         <div class="form-group">
-          <label for="name">Nombre</label>
-          <input type="text" id="name" [value]="nameInput()" (input)="updateName($any($event.target).value)" placeholder="Tu nombre completo" required />
+          <label for="name">{{ general().formName }}</label>
+          <input type="text" id="name" [value]="nameInput()" (input)="updateName($any($event.target).value)" [placeholder]="isSpanish() ? 'Tu nombre completo' : 'Your full name'" required />
         </div>
         
         <div class="form-group">
-          <label for="email">Correo</label>
-          <input type="email" id="email" [value]="emailInput()" (input)="updateEmail($any($event.target).value)" placeholder="correo@ejemplo.com" required />
+          <label for="email">{{ general().formEmail }}</label>
+          <input type="email" id="email" [value]="emailInput()" (input)="updateEmail($any($event.target).value)" [placeholder]="isSpanish() ? 'correo@ejemplo.com' : 'email@example.com'" required />
         </div>
         
         <div class="form-group">
-          <label for="message">Mensaje</label>
-          <textarea id="message" [value]="messageInput()" (input)="updateMessage($any($event.target).value)" placeholder="Escribe los detalles de tu consulta..." required></textarea>
+          <label for="message">{{ general().formMsg }}</label>
+          <textarea id="message" [value]="messageInput()" (input)="updateMessage($any($event.target).value)" [placeholder]="isSpanish() ? 'Escribe los detalles de tu consulta...' : 'Write the details of your inquiry...'" required></textarea>
         </div>
         
         @if (submitSuccess()) {
           <div class="form-success-msg">
-            <i class="fa-solid fa-circle-check"></i> ¡Mensaje enviado con éxito! Te responderé lo antes posible.
+            <i class="fa-solid fa-circle-check"></i> {{ general().formSuccess }}
           </div>
         }
         
         <button type="submit" class="btn btn-primary" [disabled]="isSubmitting()">
           @if (isSubmitting()) {
-            <i class="fa-solid fa-spinner fa-spin"></i> Enviando...
+            <i class="fa-solid fa-spinner fa-spin"></i> {{ general().formSubmitting }}
           } @else {
-            Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
+            {{ general().formSubmit }} <i class="fa-solid fa-paper-plane"></i>
           }
         </button>
       </form>
@@ -249,10 +253,9 @@
   <div class="container footer-content">
     <div class="footer-socials">
       <a href="https://linkedin.com/in/gustavohernandezsalazar" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://github.com/hernandez29a" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
       <a href="mailto:hernandez29a@mail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
     </div>
-    <p>&copy; 2026 Gustavo Hernández. Todos los derechos reservados. | Diseñado en Angular con rendimiento optimizado.</p>
+    <p>&copy; 2026 {{ general().footerRights }}</p>
   </div>
 </footer>
 
@@ -260,26 +263,37 @@
 <div class="modal-backdrop" [class.active]="selectedProject()" (click)="closeProject()">
   @if (selectedProject(); as project) {
     <div class="modal-content" (click)="$event.stopPropagation()">
-      <button class="modal-close" (click)="closeProject()" aria-label="Cerrar modal">
+      <button class="modal-close" (click)="closeProject()" [aria-label]="general().modalCloseBtn">
         <i class="fa-solid fa-xmark"></i>
       </button>
       
       <div class="modal-project-header">
-        <span class="badge badge-cyan">{{ project.category }}</span>
+        <span class="badge badge-cyan">
+          {{ project.category === 'microservices' ? general().filterMicro : (project.category === 'fullstack' ? general().filterFull : general().filterGame) }}
+        </span>
         <h3>{{ project.title }}</h3>
         <p class="tagline">{{ project.tagline }}</p>
       </div>
       
       <div class="modal-project-img">
-        <img [src]="project.image" [alt]="project.title" />
+        <img [src]="project.images[activeImageIndex()]" [alt]="project.title" />
+      </div>
+      
+      <!-- Thumbnail Gallery -->
+      <div class="project-gallery-thumbs">
+        @for (img of project.images; track img) {
+          <div class="gallery-thumb" [class.active]="$index === activeImageIndex()" (click)="activeImageIndex.set($index)">
+            <img [src]="img" [alt]="'Preview ' + ($index + 1)" />
+          </div>
+        }
       </div>
       
       <div class="modal-body-grid">
         <div class="modal-left">
-          <h4>Descripción General</h4>
+          <h4>{{ general().modalDesc }}</h4>
           <p>{{ project.fullDescription }}</p>
           
-          <h4>Aspectos Técnicos Destacados</h4>
+          <h4>{{ general().modalHighlights }}</h4>
           <ul class="highlight-list">
             @for (hl of project.highlights; track hl) {
               <li>{{ hl }}</li>
@@ -288,19 +302,19 @@
         </div>
         
         <div class="modal-right">
-          <h4>Tecnologías Empleadas</h4>
+          <h4>{{ general().modalTech }}</h4>
           <div class="tech-tag-cloud">
             @for (t of project.tech; track t) {
               <span>{{ t }}</span>
             }
           </div>
-          
-          <h4>Repositorio Código</h4>
-          <a [href]="project.github" target="_blank" class="btn btn-outline btn-full">
-            <i class="fa-brands fa-github"></i> Ver en GitHub
-          </a>
         </div>
       </div>
     </div>
   }
 </div>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" [class.show]="showBackToTop()" (click)="scrollToTop()" aria-label="Volver arriba">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
