@@ -100,6 +100,11 @@
   min-width: 38px;
 }
 
+/* Desktop hidden mobile menu controls */
+.mobile-menu-controls {
+  display: none;
+}
+
 /* Mobile Menu Button */
 .menu-toggle {
   display: none;
@@ -846,16 +851,39 @@ body.light-theme .zoom-indicator {
     z-index: 1000; /* Stacking above standard page content when open */
   }
   
-  .nav-controls {
-    margin-right: 8px;
+  .desktop-controls {
+    display: none !important; /* Hide inline controls on mobile to prevent overflow */
   }
   
   .menu-toggle {
-    display: block;
+    display: flex !important; /* Show menu toggle */
+  }
+
+  .mobile-menu-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 15px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+    justify-content: center;
+  }
+
+  body.light-theme .mobile-menu-controls {
+    border-top-color: rgba(15, 23, 42, 0.08);
   }
 }
 
 @media (max-width: 768px) {
+  /* Header Space Optimization */
+  .logo {
+    font-size: 1.25rem !important;
+  }
+  .nav-container {
+    gap: 12px !important;
+  }
+
   /* Hero Section Mobile Adaptability */
   .hero {
     padding-top: calc(var(--header-height) + 20px);

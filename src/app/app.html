@@ -10,10 +10,19 @@
         <li><a href="#experiencia" (click)="mobileMenuOpen.set(false)">{{ general().navExperience }}</a></li>
         <li><a href="#habilidades" (click)="mobileMenuOpen.set(false)">{{ general().navSkills }}</a></li>
         <li><a href="#contacto" (click)="mobileMenuOpen.set(false)">{{ general().navContact }}</a></li>
+        <!-- Mobile controls (Only visible inside mobile dropdown) -->
+        <li class="mobile-menu-controls">
+          <button class="control-btn" (click)="toggleTheme()" [title]="isDarkMode() ? (isSpanish() ? 'Modo Claro' : 'Light Mode') : (isSpanish() ? 'Modo Oscuro' : 'Dark Mode')">
+            <i class="fa-solid" [class.fa-sun]="isDarkMode()" [class.fa-moon]="!isDarkMode()"></i>
+          </button>
+          <button class="control-btn lang-btn" (click)="toggleLanguage()" [title]="isSpanish() ? 'Switch to English' : 'Cambiar a Español'">
+            <span>{{ isSpanish() ? 'EN' : 'ES' }}</span>
+          </button>
+        </li>
       </ul>
     </nav>
 
-    <div class="nav-controls">
+    <div class="nav-controls desktop-controls">
       <!-- Theme Switcher -->
       <button class="control-btn" (click)="toggleTheme()" [title]="isDarkMode() ? (isSpanish() ? 'Modo Claro' : 'Light Mode') : (isSpanish() ? 'Modo Oscuro' : 'Dark Mode')">
         <i class="fa-solid" [class.fa-sun]="isDarkMode()" [class.fa-moon]="!isDarkMode()"></i>
