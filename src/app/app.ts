@@ -240,6 +240,7 @@ export class App {
     contactLinkedInLabel: 'LinkedIn',
     formName: 'Nombre',
     formEmail: 'Correo',
+    formSubject: 'Asunto',
     formMsg: 'Mensaje',
     formSuccess: '¡Mensaje enviado con éxito! Te responderé lo antes posible.',
     formSubmit: 'Enviar Mensaje',
@@ -430,6 +431,7 @@ export class App {
     contactLinkedInLabel: 'LinkedIn',
     formName: 'Name',
     formEmail: 'Email',
+    formSubject: 'Subject',
     formMsg: 'Message',
     formSuccess: 'Message sent successfully! I will reply to you as soon as possible.',
     formSubmit: 'Send Message',
@@ -460,6 +462,7 @@ export class App {
   // Contact Form Inputs
   protected readonly nameInput = signal('');
   protected readonly emailInput = signal('');
+  protected readonly subjectInput = signal('');
   protected readonly messageInput = signal('');
   protected readonly isSubmitting = signal(false);
   protected readonly submitSuccess = signal(false);
@@ -467,24 +470,51 @@ export class App {
   // Form submit handler
   protected onSubmit(event: Event): void {
     event.preventDefault();
-    if (!this.nameInput() || !this.emailInput() || !this.messageInput()) {
+    if (!this.nameInput() || !this.emailInput() || !this.subjectInput() || !this.messageInput()) {
       return;
     }
 
     this.isSubmitting.set(true);
 
-    setTimeout(() => {
+    fetch('https://formsubmit.co/ajax/hernandez29a@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        Nombre: this.nameInput(),
+        Email: this.emailInput(),
+        Asunto: this.subjectInput(),
+        Mensaje: this.messageInput(),
+        _subject: 'Contacto Web: ' + this.subjectInput(),
+        _captcha: 'false',
+        _template: 'box'
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
       this.isSubmitting.set(false);
-      this.submitSuccess.set(true);
-      
-      this.nameInput.set('');
-      this.emailInput.set('');
-      this.messageInput.set('');
-
-      setTimeout(() => {
-        this.submitSuccess.set(false);
-      }, 5000);
-    }, 1500);
+      console.log('FormSubmit API Response:', data);
+      if (data.success === 'true' || data.success === true) {
+        this.submitSuccess.set(true);
+        this.nameInput.set('');
+        this.emailInput.set('');
+        this.subjectInput.set('');
+        this.messageInput.set('');
+        
+        setTimeout(() => {
+          this.submitSuccess.set(false);
+        }, 5000);
+      } else {
+        alert(this.isSpanish() ? 'Hubo un error al enviar el mensaje. Inténtalo de nuevo.' : 'There was an error sending the message. Please try again.');
+      }
+    })
+    .catch(error => {
+      this.isSubmitting.set(false);
+      console.error('Error:', error);
+      alert(this.isSpanish() ? 'Hubo un error de conexión.' : 'Connection error.');
+    });
   }
 
   // Update inputs methods
@@ -494,6 +524,10 @@ export class App {
 
   protected updateEmail(value: string): void {
     this.emailInput.set(value);
+  }
+
+  protected updateSubject(value: string): void {
+    this.subjectInput.set(value);
   }
 
   protected updateMessage(value: string): void {
