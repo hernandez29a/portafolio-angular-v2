@@ -70,10 +70,10 @@ export class App {
       description: 'Plataforma empresarial de microservicios políglotas especializada en confección textil, con base de datos MongoDB aislada por empresa.',
       fullDescription: 'Loomflow es una solución SaaS integral diseñada para centralizar la gestión de fábricas de ropa y comercios textiles. Al ser multi-tenant, implementa un estricto aislamiento de datos para garantizar la confidencialidad de cada empresa. Destaca por su arquitectura modular con comunicación asíncrona de eventos en tiempo real, permitiendo sincronizar las ventas de retail con las colas de costura de forma automática.',
       images: [
-        'assets/loomflow/vista de creacion de inquilinos.png',
-        'assets/loomflow/login.png',
         'assets/loomflow/administracion-tasas.png',
-        'assets/loomflow/soporte-bd-inquilino.png'
+        'assets/loomflow/login.png',
+        'assets/loomflow/soporte-bd-inquilino.png',
+        'assets/loomflow/vista de creacion de inquilinos.png'
       ],
       category: 'microservices',
       tech: ['Angular 19+', 'NestJS', 'Rust', 'RabbitMQ', 'MongoDB', 'Caddy', 'Docker'],
@@ -261,10 +261,10 @@ export class App {
       description: 'Polyglot microservices enterprise platform specialized in textile manufacturing, featuring company-isolated MongoDB databases.',
       fullDescription: 'Loomflow is a comprehensive SaaS solution designed to centralize the management of garment factories and textile businesses. Being multi-tenant, it implements strict data isolation to guarantee confidentiality for each company. It stands out due to its modular architecture with real-time asynchronous event communication, allowing retail sales to automatically synchronize with workshop sewing queues.',
       images: [
-        'assets/loomflow/vista de creacion de inquilinos.png',
-        'assets/loomflow/login.png',
         'assets/loomflow/administracion-tasas.png',
-        'assets/loomflow/soporte-bd-inquilino.png'
+        'assets/loomflow/login.png',
+        'assets/loomflow/soporte-bd-inquilino.png',
+        'assets/loomflow/vista de creacion de inquilinos.png'
       ],
       category: 'microservices',
       tech: ['Angular 19+', 'NestJS', 'Rust', 'RabbitMQ', 'MongoDB', 'Caddy', 'Docker'],
