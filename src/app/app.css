@@ -106,7 +106,7 @@
   display: none;
   background: transparent;
   border: none;
-  color: white;
+  color: var(--text-primary); /* Dynamically switches color based on active theme */
   font-size: 1.5rem;
   cursor: pointer;
   padding: 10px; /* Expand touch target area to meet 44px recommended size */
